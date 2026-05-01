@@ -1,6 +1,6 @@
 package org.com.application.exception;
 
-import com.org.project.application.util.APIResponse;
+import org.com.application.util.APIResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

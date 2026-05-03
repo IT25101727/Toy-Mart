@@ -1,0 +1,21 @@
+package org.com.application.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public interface SuperSevice<T> {
+    T  save(T dto) throws Exception;
+
+    T update(T dto)throws Exception;
+
+    List<T> getAll()throws Exception;
+
+    String getLastID()throws Exception;
+
+    void  delete(String id)throws Exception;
+
+    T find(String id)throws Exception;
+
+    boolean ifExit(String id)throws Exception;
+
+}

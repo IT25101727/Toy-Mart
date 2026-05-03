@@ -1,9 +1,8 @@
 package org.com.application.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public interface SuperSevice<T> {
+public interface SuperService<T> {
     T  save(T dto) throws Exception;
 
     T update(T dto)throws Exception;

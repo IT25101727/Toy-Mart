@@ -1,9 +1,9 @@
 package org.com.application.controller;
 
-import com.org.project.application.dto.DtoProduct;
-import com.org.project.application.service.custom.ProductService;
-import com.org.project.application.util.APIResponse;
 import lombok.RequiredArgsConstructor;
+import org.com.application.dto.DtoProduct;
+import org.com.application.service.custom.ProductService;
+import org.com.application.util.APIResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

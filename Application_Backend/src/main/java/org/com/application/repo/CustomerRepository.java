@@ -1,6 +1,6 @@
-package com.org.project.application.repo;
+package org.com.application.repo;
 
-import com.org.project.application.entity.Customer;
+import org.com.application.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

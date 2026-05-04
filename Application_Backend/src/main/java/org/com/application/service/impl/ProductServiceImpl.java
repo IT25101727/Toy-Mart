@@ -1,12 +1,12 @@
 package org.com.application.service.impl;
 
-import com.org.project.application.dto.DtoProduct;
-import com.org.project.application.entity.Product;
-import com.org.project.application.exception.CustomException;
-import com.org.project.application.repo.ProductRepository;
-import com.org.project.application.service.custom.ProductService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.com.application.dto.DtoProduct;
+import org.com.application.entity.Product;
+import org.com.application.exception.CustomException;
+import org.com.application.repo.ProductRepository;
+import org.com.application.service.custom.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 

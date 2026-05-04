@@ -1,7 +1,8 @@
 package org.com.application.service.custom;
 
-import com.org.project.application.dto.DtoProduct;
-import com.org.project.application.service.SuperService;
+
+import org.com.application.dto.DtoProduct;
+import org.com.application.service.SuperService;
 
 public interface ProductService extends SuperService<DtoProduct> {
     long count();

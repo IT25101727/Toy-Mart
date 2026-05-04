@@ -1,7 +1,7 @@
-package com.org.project.application.repo;
+package org.com.application.repo;
 
-import com.org.project.application.entity.Order;
-import com.org.project.application.entity.Payment;
+import org.com.application.entity.Order;
+import org.com.application.entity.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

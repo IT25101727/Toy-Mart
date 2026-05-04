@@ -1,6 +1,6 @@
 package org.com.application.repo;
 
-import com.org.project.application.entity.Product;
+import org.com.application.entity.Product;
 import org.jspecify.annotations.NullMarked;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

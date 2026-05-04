@@ -1,10 +1,9 @@
-package com.org.project.application.controller;
+package org.com.application.controller;
 
-import com.org.project.application.dto.DtoOrder;
-import com.org.project.application.dto.DtoPayment;
-import com.org.project.application.service.custom.PaymentService;
-import com.org.project.application.util.APIResponse;
 import lombok.AllArgsConstructor;
+import org.com.application.dto.DtoPayment;
+import org.com.application.service.custom.PaymentService;
+import org.com.application.util.APIResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

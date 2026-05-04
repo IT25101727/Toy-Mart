@@ -1,8 +1,9 @@
-package com.org.project.application.service.custom;
+package org.com.application.service.custom;
 
-import com.org.project.application.dto.DtoCustomer;
-import com.org.project.application.service.SuperService;
 
-public interface CustomerService extends SuperService<DtoCustomer> {
+import org.com.application.dto.DtoCustomer;
+import org.com.application.service.SuperSevice;
+
+public interface CustomerService extends SuperSevice<DtoCustomer> {
     long getCount();
 }

@@ -1,17 +1,17 @@
-package com.org.project.application.service.impl;
+package org.com.application.service.impl;
 
-import com.org.project.application.dto.DtoCustomer;
-import com.org.project.application.entity.Customer;
-import com.org.project.application.exception.CustomException;
-import com.org.project.application.repo.CustomerRepository;
-import com.org.project.application.service.custom.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.com.application.dto.DtoCustomer;
+import org.com.application.entity.Customer;
+import org.com.application.exception.CustomException;
+import org.com.application.repo.CustomerRepository;
+import org.com.application.service.custom.CustomerService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class CustomerServiceImpl implements CustomerService {

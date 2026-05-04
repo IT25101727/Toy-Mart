@@ -1,14 +1,14 @@
-package com.org.project.application.service.impl;
+package org.com.application.service.impl;
 
-import com.org.project.application.dto.DtoPayment;
-import com.org.project.application.entity.Order;
-import com.org.project.application.entity.Payment;
-import com.org.project.application.exception.CustomException;
-import com.org.project.application.repo.OrderRepository;
-import com.org.project.application.repo.PaymentRepository;
-import com.org.project.application.service.custom.PaymentService;
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.com.application.dto.DtoPayment;
+import org.com.application.entity.Order;
+import org.com.application.entity.Payment;
+import org.com.application.exception.CustomException;
+import org.com.application.repo.PaymentRepository;
+import org.com.application.service.custom.PaymentService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 

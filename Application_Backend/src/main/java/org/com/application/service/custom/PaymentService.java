@@ -1,7 +1,8 @@
-package com.org.project.application.service.custom;
+package org.com.application.service.custom;
 
-import com.org.project.application.dto.DtoPayment;
-import com.org.project.application.service.SuperService;
+
+import org.com.application.dto.DtoPayment;
+import org.com.application.service.SuperService;
 
 public interface PaymentService extends SuperService<DtoPayment> {
 }

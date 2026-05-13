@@ -1,0 +1,69 @@
+<!-- Payment Management View -->
+<div class="animate-fade-in space-y-6">
+    <div class="flex items-center justify-between">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Payments</h2>
+            <p class="text-gray-500 dark:text-gray-400">View and manage all customer payments</p>
+        </div>
+        <button onclick="App.openModal('paymentModal', 'create')" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-lg shadow-brand-500/30 transition-all active:scale-95 flex items-center">
+            <i class="fa-solid fa-plus mr-2"></i> Record Payment
+        </button>
+    </div>
+
+    <!-- Payments Table -->
+    <div class="glass-card rounded-2xl overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-50/50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-700">
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Payment ID</th>
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Order ID</th>
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Amount</th>
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="payment-table-body" class="divide-y divide-gray-100 dark:divide-gray-700">
+                    <!-- Data injected here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Modal -->
+<div id="paymentModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden">
+    <div class="glass-card w-full max-w-md rounded-2xl p-8 animate-modal-enter">
+        <div class="flex items-center justify-between mb-6">
+            <h3 id="modalTitle" class="text-xl font-bold text-gray-800 dark:text-white">Record Payment</h3>
+            <button onclick="App.closeModal('paymentModal')" class="text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <form id="paymentForm" onsubmit="PaymentModule.handleSubmit(event)" class="space-y-4">
+            <div class="space-y-2">
+                <label class="text-sm font-medium text-gray-700 dark:text-gray-300">Payment ID</label>
+                <input type="text" id="paymentID" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-brand-500 transition-all" readonly>
+            </div>
+            
+            <div class="space-y-2">
+                <label class="text-sm font-medium text-gray-700 dark:text-gray-300">Order ID</label>
+                <select id="paymentOrderID" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-brand-500 transition-all" required>
+                    <option value="">Select Order</option>
+                </select>
+            </div>
+
+            <div class="space-y-2">
+                <label class="text-sm font-medium text-gray-700 dark:text-gray-300">Payment Date</label>
+                <input type="date" id="paymentDate" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-brand-500 transition-all" required>
+            </div>
+
+            <div class="pt-4">
+                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-brand-500/30 transition-all transform active:scale-95">
+                    Save Payment
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

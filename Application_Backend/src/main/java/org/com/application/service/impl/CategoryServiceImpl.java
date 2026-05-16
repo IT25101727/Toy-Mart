@@ -4,7 +4,7 @@ package org.com.application.service.impl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.com.application.dto.DtoCategory;
-import org.com.application.dto.DtoProduct;
+import org.com.application.dto.product.DtoProduct;
 import org.com.application.entity.Category;
 import org.com.application.exception.CustomException;
 import org.com.application.repo.CategoryRepository;

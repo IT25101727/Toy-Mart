@@ -4,7 +4,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.com.application.dto.DtoCustomer;
 import org.com.application.dto.DtoOrder;
-import org.com.application.dto.DtoProduct;
+import org.com.application.dto.product.DtoProduct;
 import org.com.application.entity.Order;
 import org.com.application.exception.CustomException;
 import org.com.application.repo.OrderRepository;

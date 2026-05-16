@@ -1,0 +1,126 @@
+<div class="view-section active animate-fade-in space-y-6">
+    
+    <!-- Hero Banner -->
+    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-600 via-indigo-600 to-purple-700 dark:from-brand-900 dark:via-indigo-900 dark:to-purple-900 p-8 sm:p-10 text-white shadow-lg">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white opacity-10 animate-float blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-brand-300 opacity-20 animate-float blur-3xl" style="animation-delay: 2s;"></div>
+        
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-6 md:mb-0">
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">Welcome to <span class="text-brand-200">Toy Mart</span></h2>
+                <p class="text-indigo-100 max-w-xl text-lg opacity-90">Manage your entire e-commerce ecosystem from a single, powerful command center. Track growth, inventory, and users with real-time insights.</p>
+                <div class="mt-6 flex space-x-4">
+                    <button onclick="App.navigate('product')" class="bg-white text-indigo-600 hover:bg-brand-50 px-5 py-2.5 rounded-lg font-semibold shadow-md transition-all active:scale-95 hover:shadow-lg">
+                        <i class="fa-solid fa-box-open mr-2"></i> Manage Products
+                    </button>
+                    <button onclick="App.navigate('customer')" class="bg-indigo-700/50 hover:bg-indigo-700/70 backdrop-blur-md border border-indigo-400/30 text-white px-5 py-2.5 rounded-lg font-semibold shadow-md transition-all active:scale-95">
+                        View Customers
+                    </button>
+                </div>
+            </div>
+            <div class="hidden md:flex flex-shrink-0 relative">
+                <i class="fa-solid fa-rocket text-8xl text-white/90 animate-float drop-shadow-2xl"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Stat Card 1 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col hover-scale transition-all group relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-brand-100 dark:bg-brand-900/40 rounded-bl-full -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between mb-4 relative z-10">
+                <div class="p-3 rounded-xl bg-brand-50 dark:bg-brand-900/30 text-brand-500 dark:text-brand-400">
+                    <i class="fa-solid fa-user-shield text-xl"></i>
+                </div>
+                <span class="text-xs font-semibold text-brand-600 dark:text-brand-300 bg-brand-100 dark:bg-brand-500/20 px-2.5 py-1 rounded-full">System</span>
+            </div>
+            <div class="relative z-10">
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Total Admins</p>
+                <p class="text-3xl font-bold text-gray-800 dark:text-white" id="stat-admin-count">0</p>
+            </div>
+        </div>
+
+        <!-- Stat Card 2 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col hover-scale transition-all group relative overflow-hidden animate-slide-up" style="animation-delay: 0.1s;">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-green-100 dark:bg-green-900/40 rounded-bl-full -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between mb-4 relative z-10">
+                <div class="p-3 rounded-xl bg-green-50 dark:bg-green-900/30 text-green-500 dark:text-green-400">
+                    <i class="fa-solid fa-users text-xl"></i>
+                </div>
+                <span class="text-xs font-semibold text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-500/20 px-2.5 py-1 rounded-full">Active</span>
+            </div>
+            <div class="relative z-10">
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Total Customers</p>
+                <p class="text-3xl font-bold text-gray-800 dark:text-white" id="stat-customer-count">0</p>
+            </div>
+        </div>
+
+        <!-- Stat Card 3 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col hover-scale transition-all group relative overflow-hidden animate-slide-up" style="animation-delay: 0.2s;">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-purple-100 dark:bg-purple-900/40 rounded-bl-full -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between mb-4 relative z-10">
+                <div class="p-3 rounded-xl bg-purple-50 dark:bg-purple-900/30 text-purple-500 dark:text-purple-400">
+                    <i class="fa-solid fa-layer-group text-xl"></i>
+                </div>
+                <span class="text-xs font-semibold text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-500/20 px-2.5 py-1 rounded-full">Organize</span>
+            </div>
+            <div class="relative z-10">
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Categories</p>
+                <p class="text-3xl font-bold text-gray-800 dark:text-white" id="stat-category-count">0</p>
+            </div>
+        </div>
+
+        <!-- Stat Card 4 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col hover-scale transition-all group relative overflow-hidden animate-slide-up" style="animation-delay: 0.3s;">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-orange-100 dark:bg-orange-900/40 rounded-bl-full -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between mb-4 relative z-10">
+                <div class="p-3 rounded-xl bg-orange-50 dark:bg-orange-900/30 text-orange-500 dark:text-orange-400">
+                    <i class="fa-solid fa-cubes text-xl"></i>
+                </div>
+                <span class="text-xs font-semibold text-orange-600 dark:text-orange-300 bg-orange-100 dark:bg-orange-500/20 px-2.5 py-1 rounded-full">Inventory</span>
+            </div>
+            <div class="relative z-10">
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Total Products</p>
+                <p class="text-3xl font-bold text-gray-800 dark:text-white" id="stat-product-count">0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 animate-slide-up" style="animation-delay: 0.4s;">
+        <div class="glass-card rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-4">Quick Actions</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="App.navigate('admin'); setTimeout(() => App.openModal('adminModal'), 100);" class="flex items-center justify-center p-4 border border-dashed border-gray-300 dark:border-gray-600 rounded-xl hover:bg-brand-50 dark:hover:bg-brand-900/20 hover:border-brand-500 dark:hover:border-brand-400 transition-colors group">
+                    <i class="fa-solid fa-user-plus text-gray-400 dark:text-gray-500 group-hover:text-brand-500 mr-2 transition-colors"></i>
+                    <span class="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-brand-600 dark:group-hover:text-brand-400">New Admin</span>
+                </button>
+                <button onclick="App.navigate('customer'); setTimeout(() => App.openModal('customerModal'), 100);" class="flex items-center justify-center p-4 border border-dashed border-gray-300 dark:border-gray-600 rounded-xl hover:bg-green-50 dark:hover:bg-green-900/20 hover:border-green-500 dark:hover:border-green-400 transition-colors group">
+                    <i class="fa-solid fa-user-plus text-gray-400 dark:text-gray-500 group-hover:text-green-500 mr-2 transition-colors"></i>
+                    <span class="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-green-600 dark:group-hover:text-green-400">New Customer</span>
+                </button>
+                <button onclick="App.navigate('category'); setTimeout(() => App.openModal('categoryModal'), 100);" class="flex items-center justify-center p-4 border border-dashed border-gray-300 dark:border-gray-600 rounded-xl hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:border-purple-500 dark:hover:border-purple-400 transition-colors group">
+                    <i class="fa-solid fa-folder-plus text-gray-400 dark:text-gray-500 group-hover:text-purple-500 mr-2 transition-colors"></i>
+                    <span class="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-purple-400">New Category</span>
+                </button>
+                <button onclick="App.navigate('product'); setTimeout(() => App.openModal('productModal'), 100);" class="flex items-center justify-center p-4 border border-dashed border-gray-300 dark:border-gray-600 rounded-xl hover:bg-orange-50 dark:hover:bg-orange-900/20 hover:border-orange-500 dark:hover:border-orange-400 transition-colors group">
+                    <i class="fa-solid fa-box text-gray-400 dark:text-gray-500 group-hover:text-orange-500 mr-2 transition-colors"></i>
+                    <span class="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">New Product</span>
+                </button>
+                <button onclick="App.navigate('order'); setTimeout(() => App.openModal('orderModal'), 100);" class="flex items-center justify-center p-4 border border-dashed border-gray-300 dark:border-gray-600 rounded-xl hover:bg-red-50 dark:hover:bg-red-900/20 hover:border-red-500 dark:hover:border-red-400 transition-colors group pulse-glow col-span-2">
+                    <i class="fa-solid fa-cart-shopping text-gray-400 dark:text-gray-500 group-hover:text-red-500 mr-2 transition-colors"></i>
+                    <span class="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-red-600 dark:group-hover:text-red-400">Place New Order</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-center items-center text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-50 to-transparent dark:from-brand-900/20 dark:to-transparent opacity-50"></div>
+            <i class="fa-solid fa-chart-pie text-5xl text-gray-200 dark:text-gray-700 mb-4 group-hover:scale-110 transition-transform duration-500"></i>
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Analytics Ready</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 max-w-sm relative z-10">Your dashboard is fully integrated with the backend API. Keep adding products and customers to see your store grow!</p>
+        </div>
+    </div>
+</div>

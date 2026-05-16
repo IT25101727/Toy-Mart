@@ -2,6 +2,7 @@ package org.com.application.service.impl;
 
 
 import lombok.RequiredArgsConstructor;
+import org.com.application.config.PasswordHasher;
 import org.com.application.dto.DtoAdmin;
 import org.com.application.entity.Admin;
 import org.com.application.exception.CustomException;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -29,6 +31,7 @@ public class AdminServiceImpl implements AdminService {
         if(adminRepository.existsByUserName(dtoAdmin.getUserName())){
             throw new CustomException("user already exists");
         }
+        dtoAdmin.setPassword(PasswordHasher.getHashPassword(dtoAdmin.getPassword()));
         adminRepository.save(modelMapper.map(dtoAdmin, Admin.class));
         return dtoAdmin;
     }
@@ -38,7 +41,8 @@ public class AdminServiceImpl implements AdminService {
         if(adminRepository.existsByUserName(dtoAdmin.getUserName())){
             throw new CustomException("user already exists");
         }
-            adminRepository.save(modelMapper.map(dtoAdmin, Admin.class));
+        dtoAdmin.setPassword(PasswordHasher.getHashPassword(dtoAdmin.getPassword()));
+        adminRepository.save(modelMapper.map(dtoAdmin, Admin.class));
             return dtoAdmin;
     }
 
@@ -81,5 +85,12 @@ public class AdminServiceImpl implements AdminService {
         return adminRepository.existsById(id);
     }
 
-
+    @Override
+    public boolean verifyLogin(DtoAdmin dtoAdmin) {
+        Optional<Admin> admin = adminRepository.findAdminByUserName(dtoAdmin.getUserName());
+        if (admin.isPresent()) {
+            return PasswordHasher.checkPassword(dtoAdmin.getPassword(), admin.get().getPassword());
+        }
+        return false;
+    }
 }

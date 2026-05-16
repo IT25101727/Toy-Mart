@@ -57,4 +57,21 @@ public class AdminController {
                  new APIResponse<>(200,"admin deleted successfully",null)
          );
     }
+    @PostMapping("/verify")
+    public ResponseEntity<APIResponse<String>> adminLogin(@RequestBody DtoAdmin admin) {
+
+        boolean isValid = adminService.verifyLogin(admin);
+        System.out.println(isValid);
+
+        if (isValid) {
+            return ResponseEntity.ok(
+                    new APIResponse<>(200, "Login successful", "ACCESS_GRANTED")
+            );
+        }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(
+                        new APIResponse<>(401, "Invalid username or password", null)
+                );
+    }
 }

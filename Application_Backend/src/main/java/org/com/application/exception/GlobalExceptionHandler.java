@@ -48,6 +48,7 @@ public class GlobalExceptionHandler {
     // ❌ ALWAYS LAST (fallback)
     @ExceptionHandler(Exception.class)
     public ResponseEntity<APIResponse<String>> handleGenericException(Exception e) {
+        e.printStackTrace();
         return new ResponseEntity<>(
                 new APIResponse<>(
                         HttpStatus.INTERNAL_SERVER_ERROR.value(),

@@ -33,6 +33,9 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public DtoPayment update(DtoPayment dto) {
+        if(paymentRepository.existsByOrder(modelMapper.map(dto.getOrder(), Order.class))){
+            throw new CustomException("order payment is already recoded");
+        }
         paymentRepository.save(modelMapper.map(dto, Payment.class));
         return  dto;
     }

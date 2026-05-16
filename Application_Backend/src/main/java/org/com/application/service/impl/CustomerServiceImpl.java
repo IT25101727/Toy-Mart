@@ -40,6 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
         if(customerRepository.existsByEmail(dto.getEMail()) & !find(dto.getCustomerId()).getCustomerId().equals(dto.getCustomerId())){
             throw new CustomException("customer email is already registered");
         }
+        dto.setPassWord(PasswordHasher.getHashPassword(dto.getPassWord()));
         customerRepository.save(modelMapper.map(dto, Customer.class));
         return dto;
     }

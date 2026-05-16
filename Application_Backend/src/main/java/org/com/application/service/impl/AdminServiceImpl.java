@@ -38,12 +38,16 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public DtoAdmin update(DtoAdmin dtoAdmin) {
-        if(adminRepository.existsByUserName(dtoAdmin.getUserName())){
-            throw new CustomException("user already exists");
+        Optional<Admin> existingAdmin =
+                adminRepository.findByUserName(dtoAdmin.getUserName());
+        if (existingAdmin.isPresent() && !existingAdmin.get().getAdminId().equals(dtoAdmin.getAdminID())) {
+            throw new CustomException(
+                    "Admin already exists with this username"
+            );
         }
         dtoAdmin.setPassword(PasswordHasher.getHashPassword(dtoAdmin.getPassword()));
         adminRepository.save(modelMapper.map(dtoAdmin, Admin.class));
-            return dtoAdmin;
+        return dtoAdmin;
     }
 
     @Override
@@ -87,7 +91,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public boolean verifyLogin(DtoAdmin dtoAdmin) {
-        Optional<Admin> admin = adminRepository.findAdminByUserName(dtoAdmin.getUserName());
+        Optional<Admin> admin = adminRepository.findByUserName(dtoAdmin.getUserName());
         if (admin.isPresent()) {
             return PasswordHasher.checkPassword(dtoAdmin.getPassword(), admin.get().getPassword());
         }

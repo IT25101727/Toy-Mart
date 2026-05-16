@@ -57,6 +57,7 @@ public class AdminController {
                  new APIResponse<>(200,"admin deleted successfully",null)
          );
     }
+
     @PostMapping("/verify")
     public ResponseEntity<APIResponse<String>> adminLogin(@RequestBody DtoAdmin admin) {
 

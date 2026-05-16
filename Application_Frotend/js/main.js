@@ -215,23 +215,30 @@ const AuthModule = {
 
         errorEl.classList.add('hidden');
 
-        // Fetch admins to verify
-        fetch(`${API_BASE}/admin`)
-            .then(res => res.json())
-            .then(data => {
-                const admin = data.data.find(a => a.userName === user && a.password === pass);
-                if (admin) {
-                    localStorage.setItem('currentUser', JSON.stringify(admin));
-                    App.showToast('Login successful!');
-                    App.checkSession();
+        fetch(`${API_BASE}/admin/verify`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userName: user, password: pass })
+        })
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
                 } else {
-                    errorEl.classList.remove('hidden');
-                    App.showToast('Invalid username or password', 'error');
+                    throw new Error('Invalid credentials');
                 }
+            })
+            .then(data => {
+                const admin = { userName: user };
+                localStorage.setItem('currentUser', JSON.stringify(admin));
+                App.showToast('Login successful!');
+                App.checkSession();
             })
             .catch(err => {
                 console.error('Login error:', err);
-                App.showToast('Server error during login', 'error');
+                errorEl.classList.remove('hidden');
+                App.showToast('Invalid username or password', 'error');
             });
     },
 

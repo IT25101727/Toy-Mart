@@ -37,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
     //remember to verify before update
     @Override
     public DtoCustomer update(DtoCustomer dto) {
-        if(customerRepository.existsByEmail(dto.getEMail())){
+        if(customerRepository.existsByEmail(dto.getEMail()) & !find(dto.getCustomerId()).getCustomerId().equals(dto.getCustomerId())){
             throw new CustomException("customer email is already registered");
         }
         customerRepository.save(modelMapper.map(dto, Customer.class));

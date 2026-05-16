@@ -53,7 +53,13 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public void delete(String id) {
-        paymentRepository.deleteById(id);
+        paymentRepository.findById(id).ifPresent(payment -> {
+            if (payment.getOrder() != null) {
+                payment.getOrder().setPayment(null);
+                payment.setOrder(null);
+            }
+            paymentRepository.delete(payment);
+        });
     }
 
     @Override

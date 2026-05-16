@@ -29,6 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
         if(customerRepository.existsByEmail(dto.getEMail())){
             throw new CustomException("customer email is already registered");
         }
+        dto.setPassWord(PasswordHasher.getHashPassword(dto.getPassWord()));
         customerRepository.save(modelMapper.map(dto, Customer.class));
         return dto;
 
